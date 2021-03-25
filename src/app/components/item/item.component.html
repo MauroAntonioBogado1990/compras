@@ -1,5 +1,6 @@
 <div>
     <div>
+        <input type="checkbox" [checked]="item.completed">
         {{ item.title }}
     </div>
     <div>
@@ -11,4 +12,5 @@
     <div>
         {{ (item.price * item.quantity) }}
     </div>
+    <button>Eliminar</button>
 </div>
