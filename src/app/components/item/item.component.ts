@@ -1,5 +1,5 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
-import * as EventEmitter from 'node:events';
+import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
+
 import { Item } from 'src/app/models/item';
 
 @Component({
@@ -11,6 +11,7 @@ export class ItemComponent implements OnInit {
 
   @Input() item: Item = new Item();
   @Output() deleteItem: EventEmitter<Item> = new EventEmitter();
+  @Output() toggleItem: EventEmitter<Item> = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
@@ -21,7 +22,7 @@ export class ItemComponent implements OnInit {
   }
   onToggle(item: Item){
     item.completed = !item.completed;
-
+    this.toggleItem.emit(item);
   }
 
 }
